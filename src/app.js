@@ -8,6 +8,7 @@ app.use(express.static(path.resolve(__dirname, 'public')))
 app.get('/', (req, res)=> {
     res.sendFile(path.resolve(__dirname, 'views/index.html'))
 })
+
 app.set("views", path.join(__dirname, "views"));
 
 const port = 3030;

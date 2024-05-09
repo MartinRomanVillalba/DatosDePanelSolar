@@ -3,14 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Datos del panel solar</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <h1>hola</h1>
+    <h1>Datos del panel solar</h1>
     <form action="">
+        <h2>Carga de la casa</h2>
         <label for="output">Output load %</label>
         <input type="number" name="output" id="output">
+        <label for="output-active">AC Output Active Power(W)</label>
+        <input type="number" name="output-active" id="output-active">
+
+        <h2>Batería</h2>
+        <label for="voltaje">Voltaje(V)</label>
+        <input type="number" name="voltaje" id="voltaje">
+        <label for="porcentaje">Porcentaje</label>
+        <input type="number" name="porcentaje" id="porcentaje">
+        <label for="charging">Charging Current(A)</label>
+        <input type="number" name="charging" id="charging">
+        <label for="discharge">Discharge Current(A)</label>
+        <input type="number" name="discharge" id="discharge">
+
+        <h2>Panel FV 1(W)</h2>
+        <label for="input-voltaje">Input voltaje</label>
+        <input type="number" name="input-voltaje" id="input-voltaje">
+        <label for="input-power">Input Power</label>
+        <input type="number" name="input-power" id="input-power">
     </form>
 </body>
 </html>
