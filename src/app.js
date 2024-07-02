@@ -4,6 +4,7 @@ const path = require("path");
 const expressSession = require("express-session");
 
 const mainRoutes = require("./routes/main");
+const datosRoutes = require('./routes/datos');
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(
 // })
 
 app.use("/", mainRoutes);
+app.use('/datos', datosRoutes)
 
 const port = process.env.PORT || 3000;
 
