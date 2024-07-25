@@ -2,16 +2,17 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('fechas', {
+    await queryInterface.createTable('horas', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      date: {
-        type: Sequelize.DATE,
-        allowNull: false
+      hora: {
+        type: Sequelize.TIME,
+        allowNull: false,
+        unique: true
       },
       createdAt: {
         allowNull: false,
@@ -24,6 +25,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('fechas');
+    await queryInterface.dropTable('horas');
   }
 };

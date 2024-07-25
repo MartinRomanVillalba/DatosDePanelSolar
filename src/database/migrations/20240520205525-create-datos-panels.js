@@ -41,11 +41,15 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      fechas_id: {
+      fecha:{
+        type: Sequelize.DATEONLY,
+        allowNull: false
+      },
+      hora_id:{
         type: Sequelize.INTEGER,
-        references: {
+        references:{
           model: {
-            tableName: 'fechas'
+            tableName: 'horas'
           },
           key: 'id'
         }

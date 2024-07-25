@@ -11,7 +11,16 @@
     <form action="/datos/create" method="post">
         <h2>Fecha</h2>
         <label for="fecha">Dia</label>
-        <input type="date">
+        <input type="date" name="fecha" id="fecha">
+
+        <h2>Hora</h2>
+        <label for="hora_id">Hora</label>
+        <select class="hora" name="hora_id" id="hora_id">
+            <option value="">Selecciona un horario</option>
+            <% locals.horas?.forEach(horas => { %>
+                <option value="<%= horas.id %>"><%= horas.hora %></option>
+            <% }) %>
+        </select>
 
         <h2>Carga de la casa</h2>
         <label for="output">Output load %</label>
