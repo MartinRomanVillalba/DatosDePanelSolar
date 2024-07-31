@@ -14,8 +14,8 @@
         <input type="date" name="fecha" id="fecha">
 
         <h2>Hora</h2>
-        <label for="hora_id">Hora</label>
-        <select class="hora" name="hora_id" id="hora_id">
+        <label for="horas">Hora</label>
+        <select class="horas" name="horas" id="horas">
             <option value="">Selecciona un horario</option>
             <% locals.horas?.forEach(horas => { %>
                 <option value="<%= horas.id %>"><%= horas.hora %></option>

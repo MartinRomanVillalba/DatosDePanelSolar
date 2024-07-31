@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Datos_Panels.belongsTo(models.Horas,{
         as: 'hora',
-        foreignKey: 'horas_id'
+        foreignKey: 'hora_id'
       })
     }
   }
