@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <% for(let i = 0; i < datos.length; i++) { %>
+            <li class="caja-producto">
+                <a href="/datos/detail/<%= datos[i].id %>">
+                    <article class="caja-producto-data">
+                        <h2><%=  datos[i].id %></h2>
+                        <h3><%= datos[i].fecha %></h3>
+                    </article>
+                </a>
+            </li>
+    <% } %>
+    </ul>
+</body>
+</html>
