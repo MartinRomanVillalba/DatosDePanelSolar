@@ -16,13 +16,13 @@ h1{
     text-align: center;
 }
 
-.form-cuadro {
+.cuadro-dato {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
     width: 320px;
-    margin: 20px auto;
+    margin: auto;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -35,59 +35,44 @@ h1{
     padding: 10px;
 }
 
-.seccion h2 {
-    margin-bottom: 5px;
+.seccion h2{
+    margin: 5px 0;
     font-size: 1.2em;
     color: #ff0049;
 }
 
 .seccion label {
-    display: block;
-    margin-bottom: 5px;
+    margin: 5px 0;
     font-size: 0.9em;
-    color: #000;
-}
-
-.seccion input{
-    width: 95%;
-    padding: 5px;
-    margin-bottom: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 0.9em;
-    color: #000;
-}
-
-.seccion select {
-    width: 100%;
-    padding: 5px;
-    margin-bottom: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 0.9em;
-    color: #000;
-}
-
-.horas-select{
     color: #000;
 }
 
 .seccion-botones {
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cuadro-dato .btn {
     margin-top: 10px;
 }
 
-.seccion-botones button {
-    padding: 10px 20px;
-    font-size: 1em;
+.cuadro-dato .btn a,
+.cuadro-dato .btn button {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 0.9em;
     color: #fff;
     background-color: #007bff;
     border: none;
     border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
     cursor: pointer;
 }
 
-.seccion-botones button:hover {
+.cuadro-dato .btn a:hover,
+.cuadro-dato .btn button:hover {
     transition: background-color 0.3s ease;
     background-color: #0056b3;
 }
+ 

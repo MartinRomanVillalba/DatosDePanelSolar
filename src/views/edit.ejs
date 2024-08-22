@@ -8,43 +8,51 @@
 </head>
 <body>
     <h1>Edicion de Datos</h1>
-    <form action="/datos/<%=datos_panels.id %>/edit?_method=PUT" method="post">
-        <h2>Fecha</h2>
-        <label for="fecha">Dia</label>
-        <input type="date" name="fecha" id="fecha" value="<%= datos_panels.fecha %>">
+    <form action="/datos/<%=datos_panels.id %>/edit?_method=PUT" method="post" class="form-cuadro">
+        <div class="seccion">
+            <h2>Fecha</h2>
+            <label for="fecha">Dia</label>
+            <input type="date" name="fecha" id="fecha" value="<%= datos_panels.fecha %>">
 
-        <h2>Hora</h2>
-        <label for="horas">Hora</label>
-        <select class="horas" name="horas" id="horas">
-            <option value="">Selecciona un horario</option>
-            <% locals.horas?.forEach(horas => { %>
-                <option value="<%= horas.id %>" <%= datos_panels.hora_id === horas.id ? "selected" : ""%>><%= horas.hora %></option>
-            <% }) %>
-        </select>
+            <h2>Hora</h2>
+            <label for="horas">Hora</label>
+            <select class="horas" name="horas" id="horas">
+                <option value="" class="horas-select">Selecciona un horario</option>
+                <% locals.horas?.forEach(horas => { %>
+                    <option value="<%= horas.id %>" class="horas-select"<%= datos_panels.hora_id === horas.id ? "selected" : ""%>><%= horas.hora %></option>
+                <% }) %>
+            </select>
+        </div>
 
-        <h2>Carga de la casa</h2>
-        <label for="output">Output load %</label>
-        <input type="number" name="output" id="output" value="<%= datos_panels.output %>">
-        <label for="output_active">AC Output Active Power(W)</label>
-        <input type="number" name="output_active" id="output_active" value="<%= datos_panels.output_active %>">
+        <div class="seccion">
+            <h2>Carga de la casa</h2>
+            <label for="output">Output load %</label>
+            <input type="number" name="output" id="output" value="<%= datos_panels.output %>">
+            <label for="output_active">AC Output Active Power(W)</label>
+            <input type="number" name="output_active" id="output_active" value="<%= datos_panels.output_active %>">
+        </div>
 
-        <h2>Batería</h2>
-        <label for="voltaje">Voltaje(V)</label>
-        <input type="number" name="voltaje" id="voltaje" value="<%= datos_panels.voltaje %>">
-        <label for="porcentaje">Porcentaje</label>
-        <input type="number" name="porcentaje" id="porcentaje" value="<%= datos_panels.porcentaje %>">
-        <label for="charging">Charging Current(A)</label>
-        <input type="number" name="charging" id="charging" value="<%= datos_panels.charging %>">
-        <label for="discharge">Discharge Current(A)</label>
-        <input type="number" name="discharge" id="discharge" value="<%= datos_panels.discharge %>">
+        <div class="seccion">
+            <h2>Batería</h2>
+            <label for="voltaje">Voltaje(V)</label>
+            <input type="number" name="voltaje" id="voltaje" value="<%= datos_panels.voltaje %>">
+            <label for="porcentaje">Porcentaje</label>
+            <input type="number" name="porcentaje" id="porcentaje" value="<%= datos_panels.porcentaje %>">
+            <label for="charging">Charging Current(A)</label>
+            <input type="number" name="charging" id="charging" value="<%= datos_panels.charging %>">
+            <label for="discharge">Discharge Current(A)</label>
+            <input type="number" name="discharge" id="discharge" value="<%= datos_panels.discharge %>">
+        </div>
 
-        <h2>Panel FV 1(W)</h2>
-        <label for="input_voltaje">Input voltaje</label>
-        <input type="number" name="input_voltaje" id="input_voltaje" value="<%= datos_panels.input_voltaje %>">
-        <label for="input_power">Input Power</label>
-        <input type="number" name="input_power" id="input_power" value="<%= datos_panels.input_power %>">
+        <div class="seccion">
+            <h2>Panel FV 1(W)</h2>
+            <label for="input_voltaje">Input voltaje</label>
+            <input type="number" name="input_voltaje" id="input_voltaje" value="<%= datos_panels.input_voltaje %>">
+            <label for="input_power">Input Power</label>
+            <input type="number" name="input_power" id="input_power" value="<%= datos_panels.input_power %>">
+        </div>
 
-        <div class="content">
+        <div class="seccion-botones">
             <button type="submit">Actualizar</button>
             <button type="reset">Borrar</button>
         </div>

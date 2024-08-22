@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+*{
+    font-family: "Josefin Sans", sans-serif;
+    color: #ffffff;
+    transition: .2s linear;
+}
+
+body{
+    background: #24272c;
+}
+
+h2{
+    color: #ff0049;
+    font-size: 1.7rem;
+    text-align: left;
+    padding-left: 1rem;
+}
+
+h3{
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: left;
+    padding-left: 1rem;
+}
+
+h1{
+    color: #ff0049;
+    font-size: 3rem;
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.caja-producto {
+    background-color: #7c0023;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.caja-producto:hover {
+    transform: scale(1.05);
+    .caja-producto-data h2{
+        color: #ff82a5;
+    }
+    .caja-producto-data h3{
+        color: #ff82a5;
+    }
+} 
+
+.caja-producto a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 20px;
+}
+
+.caja-producto-data h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.caja-producto-data h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #fff;
+}
+

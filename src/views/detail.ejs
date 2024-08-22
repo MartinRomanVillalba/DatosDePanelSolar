@@ -3,22 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/stylesDetail.css">
     <title>Detalles</title>
 </head>
 <body>
-    <h3> <%= dato.fecha %> </h3>
-    <h3><%= dato.hora_id %> </h3>
-    <h3><%= dato.output %></h3>
-    <h3><%= dato.output_active %></h3>
-    <h3><%= dato.voltaje %></h3>
-    <h3><%= dato.porcentaje %></h3>
-    <h3><%= dato.charging %></h3>
-    <h3><%= dato.discharge %></h3>
-    <h3><%= dato.input_voltaje %></h3>
-    <h3><%= dato.input_power %></h3>
-    <a href="/datos/<%= dato.id %>/edit">Editar dato</a>
-    <form action="/datos/<%= dato.id %>/delete?_method=DELETE" method="POST">
-        <button type="submit">Eliminar</button>
-    </form>
+    <h1>Detalles</h1>
+
+    <div class="cuadro-dato">
+        <div class="seccion">
+            <h2>Fecha</h2>
+            <label><%= dato.fecha %></label>
+            <h2>Hora</h2>
+            <label><%= dato.hora_id %></label>
+        </div>
+        <div class="seccion">
+            <h2>Carga de la casa</h2>
+            <label>Output: <%= dato.output %><br></label>
+            <label>Output Activo: <%= dato.output_active %></label>
+        </div>
+        <div class="seccion">
+            <h2>Batería</h2>
+            <label>Voltaje: <%= dato.voltaje %><br></label>
+            <label>Porcentaje: <%= dato.porcentaje %><br></label>
+            <label>Cargando: <%= dato.charging %><br></label>
+            <label>Descarga: <%= dato.discharge %></label>
+        </div>
+        <div class="seccion">
+            <h2>Panel FV 1</h2>
+            <label>Voltaje de Entrada: <%= dato.input_voltaje %><br></label>
+            <label>Potencia de Entrada: <%= dato.input_power %></label>
+        </div>
+        <div class="seccion-botones">
+            <div class="btn">
+                <a href="/datos/<%= dato.id %>/edit">Editar dato</a>
+            </div>
+            <form action="/datos/<%= dato.id %>/delete?_method=DELETE" method="POST">
+                <div class="btn">
+                    <button type="submit">Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+
 </body>
 </html>
