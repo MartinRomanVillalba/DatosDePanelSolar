@@ -33,9 +33,15 @@ const controller = {
     }
   },
   detail: (req, res) => {
-    db.DatosPanels.findByPk(req.params.id).then((dato) => {
-      res.render("detail", {dato})
-    })
+    db.DatosPanels.findByPk(req.params.id, {
+      include: [{
+          model: db.Horas,
+          as: 'hora',
+          where: { id: db.Sequelize.col('DatosPanels.hora_id') }
+      }]
+  }).then((dato) => {
+      res.render("detail", {dato});
+  });
   },
   edit: async (req, res) => {
     const horas = await db.Horas.findAll()
