@@ -4,22 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/stylesLD.css">
-    <title>Document</title>
+    <title>Listado de Datos</title>
+    <style>
+        .hours-list {
+            display: none;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        .hours-list li {
+            cursor: pointer;
+            padding: 5px;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
     <h1>Listado de Datos</h1>
 
     <ul>
-        <% for(let i = 0; i < datos.length; i++) { %>
-            <li class="caja-producto">
-                <a href="/datos/detail/<%= datos[i].id %>">
-                    <article class="caja-producto-data">
-                        <h2><%=  datos[i].id %></h2>
-                        <h3><%= datos[i].fecha %></h3>
-                    </article>
-                </a>
+        <% datos.forEach(dato => { %>
+            <li>
+                <h2 class="toggle-hours"><%= dato.fecha %> ▼</h2>
+                <ul class="hours-list">
+                    <% horas.forEach(hora => { %>
+                        <li>
+                            <a href="/datos/detail/<%= dato.fecha %>/<%= hora %>"><%= hora %></a>
+                        </li>
+                    <% }) %>
+                </ul>
             </li>
-    <% } %>
+        <% }) %>
     </ul>
+
+    <script>
+        document.querySelectorAll('.toggle-hours').forEach(item => {
+            item.addEventListener('click', () => {
+                const hoursList = item.nextElementSibling;
+                hoursList.style.display = hoursList.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+    </script>
 </body>
 </html>

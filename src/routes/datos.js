@@ -10,7 +10,7 @@ router.get('/listadatos', datosController.index)
 router.get('/create', datosController.create)
 router.post('/create', datosController.store)
 
-router.get('/detail/:id', datosController.detail)
+router.get('/detail/:fecha/:hora', datosController.detail)
 
 router.get('/:id/edit', datosController.edit)
 router.put('/:id/edit', datosController.update)

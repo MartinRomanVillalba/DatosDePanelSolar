@@ -1,10 +1,22 @@
 const db = require("../database/models");
 
 const controller = {
-  index: (req, res) => {
-    db.DatosPanels.findAll().then((datos) => {
-      res.render("listadatos", {datos: datos})
+  index: async (req, res) => {
+    const datos = await db.DatosPanels.findAll({
+      attributes: ['fecha'],
+      group: ['fecha'],
+      order: [['fecha', 'ASC']],
     })
+
+    const horas = []
+    for(let hour = 7; hour <= 23; hour++){
+      for (let minute = 0; minute < 60; minute += 15){
+        horas.push(
+          `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`
+        )
+      }
+    }
+    res.render("listadatos", {datos, horas})
   },
   create: async(req, res) => {
     const horas = await db.Horas.findAll()
@@ -32,16 +44,22 @@ const controller = {
       return res.status(500).send(error);
     }
   },
-  detail: (req, res) => {
-    db.DatosPanels.findByPk(req.params.id, {
+  detail: async (req, res)=>{
+    const {fecha, hora} = req.params
+    const dato = await db.DatosPanels.findOne({
+      where: {
+        fecha: fecha,
+        hora_id: db.Sequelize.literal(`TIME_FORMAT(hora, "%H:%i") = "${hora}"`)
+      },
       include: [{
-          model: db.Horas,
-          as: 'hora',
-          where: { id: db.Sequelize.col('DatosPanels.hora_id') }
+        model: db.Horas,
+        as: 'hora'
       }]
-  }).then((dato) => {
-      res.render("detail", {dato});
-  });
+    })
+    if(!dato){
+      return res.render('no-data', {fecha, hora})
+    }
+    res.render('detail', {dato})
   },
   edit: async (req, res) => {
     const horas = await db.Horas.findAll()
