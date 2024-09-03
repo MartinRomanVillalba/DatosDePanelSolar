@@ -5,37 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/stylesLD.css">
     <title>Listado de Datos</title>
-    <style>
-        .hours-list {
-            display: none;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-        .hours-list li {
-            cursor: pointer;
-            padding: 5px;
-            border-bottom: 1px solid #ccc;
-        }
-    </style>
 </head>
 <body>
-    <h1>Listado de Datos</h1>
+    <header>
+        <h1>Subida de Datos</h1>
+        <a href="">Inicio</a>
+    </header>
 
-    <ul>
-        <% datos.forEach(dato => { %>
-            <li>
-                <h2 class="toggle-hours"><%= dato.fecha %> ▼</h2>
-                <ul class="hours-list">
-                    <% horas.forEach(hora => { %>
-                        <li>
-                            <a href="/datos/detail/<%= dato.fecha %>/<%= hora %>"><%= hora %></a>
-                        </li>
-                    <% }) %>
-                </ul>
-            </li>
-        <% }) %>
-    </ul>
+    <main>
+        <ul class="datos-list">
+            <% datos.forEach(dato => { %>
+                <li class="dato-item">
+                    <h2 class="toggle-hours"><%= dato.fecha %> ▼</h2>
+                    <ul class="hours-list">
+                        <% horas.forEach(hora => { %>
+                            <li>
+                                <a href="/datos/detail/<%= dato.fecha %>/<%= hora %>"><%= hora %></a>
+                            </li>
+                        <% }) %>
+                    </ul>
+                </li>
+            <% }) %>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Martin Villalba - Axel Hurt. Todos los derechos reservados.</p>
+        <a href="">Inicio</a>
+    </footer>
 
     <script>
         document.querySelectorAll('.toggle-hours').forEach(item => {
