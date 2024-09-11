@@ -10,7 +10,7 @@
 
     <header>
         <h1>Edicion de Datos</h1>
-        <a href="">Inicio</a>
+        <a href="../..">Inicio</a>
     </header>
 
     <form action="/datos/<%=datos_panels.id %>/edit?_method=PUT" method="post" class="form-cuadro">
@@ -40,7 +40,7 @@
         <div class="seccion">
             <h2>Batería</h2>
             <label for="voltaje">Voltaje(V)</label>
-            <input type="number" name="voltaje" id="voltaje" value="<%= datos_panels.voltaje %>">
+            <input type="number" name="voltaje" id="voltaje" value="<%= datos_panels.voltaje %>" step="0.01">
             <label for="porcentaje">Porcentaje</label>
             <input type="number" name="porcentaje" id="porcentaje" value="<%= datos_panels.porcentaje %>">
             <label for="charging">Charging Current(A)</label>
@@ -52,7 +52,7 @@
         <div class="seccion">
             <h2>Panel FV 1(W)</h2>
             <label for="input_voltaje">Input voltaje</label>
-            <input type="number" name="input_voltaje" id="input_voltaje" value="<%= datos_panels.input_voltaje %>">
+            <input type="number" name="input_voltaje" id="input_voltaje" value="<%= datos_panels.input_voltaje %>" step="0.01">
             <label for="input_power">Input Power</label>
             <input type="number" name="input_power" id="input_power" value="<%= datos_panels.input_power %>">
         </div>
@@ -66,7 +66,7 @@
 
     <footer>
         <p>&copy; 2024 Martin Villalba - Axel Hurt. Todos los derechos reservados.</p>
-        <a href="">Inicio</a>
+        <a href="../..">Inicio</a>
     </footer>
 </body>
 </html>
