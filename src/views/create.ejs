@@ -5,19 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datos del panel solar</title>
     <link rel="stylesheet" href="/css/stylesCreate.css">
-    <script>
-        function confirmarEnvio(event){
-            event.preventDefault()
-            const confirmation = confirm("¿Desea cargar otro dato y volver a enviar?")
-
-            if(confirmation){
-                window.location.href = "/datos/create"
-            }
-            else{
-                window.location.href = "/"
-            }
-        }
-    </script>
 </head>
 <body>
     <header>

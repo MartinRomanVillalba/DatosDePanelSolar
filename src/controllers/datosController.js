@@ -24,7 +24,6 @@ const controller = {
   },
   async store(req, res) {
     try {
-      console.log(req.body)
       const horas = await db.Horas.findAll()
       const newDate = {
         output: req.body.output,
@@ -37,10 +36,9 @@ const controller = {
         input_power: req.body.input_power,
         fecha: req.body.fecha,
         hora_id: req.body.horas
-
       };
       await db.DatosPanels.create(newDate, horas);
-      return res.redirect("/datos/create");
+      return res.redirect("/");
     } catch (error) {
       console.log("Error al guardar los datos:", error)
       return res.status(500).send(error);
